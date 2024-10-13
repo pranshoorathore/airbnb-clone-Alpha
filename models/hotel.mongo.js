@@ -1,81 +1,72 @@
 import { Schema, model } from "mongoose";
 
 const propertySchema = new Schema({
-    title: {
-        type: String,
-        required: [true , 'Property title is required']
+    title:{ type: String , 
+         required:[ true , 'property title is required']
     },
-    brief: {
-        type: String,
-        required: [true , 'Property title is required']
+    brief:{ type: String , 
+        required:[ true , 'property brief is required']
     },
-    guests: {
-        type: Number,
-        required: [true , 'Property title is required']
+    guests:{ type: Number , 
+        required:[ true , 'Guest capacity is required']
     },
-    bedrooms: {
-        type: Number,
-        required: [true , 'Property title is required']
+    bedrooms:{ type: Number , 
+        required:[ true , 'bedroom count is required']
     },
-    
-    bathrooms: {
-        type: Number,
-        required: [true , 'Property title is required']
+    bathrooms:{ type: Number , 
+        required:[ true , 'bathroom count is required']
     },
-    images: [{
-        type: String,
-        required: true
-    }],
-    description:{
-        type: String,
-        required:[true, 'property description is required']
+    images:{ type: String , 
+        required:[ true , 'property images is required']
     },
-    features: [{
-        title: String,
-        brief: String
-         
-    }],
-    amenities:[{
-        type: String,
-        required:[true, 'property description is required']
-    }
-    ],
+    description:{ type: String , 
+    required:[ true , 'property Description is required']
+    },
+    features:{ type: String , 
+        brief:String
+    },
+    amenities:{ type: String , 
+    required:[ true , 'property amenities is required']
+    },
     location:[{
         longitude:{
             type:String,
-            required:[true,'longitude is required']
+            required:[ true , 'property longitute is required']
         },
         latitude:{
             type:String,
-            required:[true,'latitude is required']
+            required:[ true , 'property latitude is required']
         },
-        city:{
+        city :{
             type:String,
-            required:[true,'city is required']
+            required:[ true , 'property city is required']
         },
         state:{
             type:String,
-            required:[true,'state is required']
+            required:[ true , 'property state is required']
         },
         country:{
             type:String,
-            required:[true,'country is required']
+            required:[ true , 'property country is required']
         },
-        description:String
+        description:{
+            type:String
+        },
+
     }],
-    rules:[String],
-    safetyproperty:[string],
-    cancellationpolicy:{
-        type:string,
-        required:[true,'cancellation policy is required']
+
+    rules:{
+        type:String
+    },
+    safetyProperty:{
+        type:String
+    },
+    cancellationPolicy:{
+        type:String,
+        required:[true,'policy']    
     }
 });
 
-
-
-
-
 const Property = new model('Property', propertySchema);
-
 export default Property;
 
