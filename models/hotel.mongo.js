@@ -1,29 +1,81 @@
 import { Schema, model } from "mongoose";
 
-const hotelSchema = new Schema({
-    name: {
+const propertySchema = new Schema({
+    title: {
         type: String,
-        required: true
+        required: [true , 'Property title is required']
     },
-    address: {
+    brief: {
         type: String,
-        required: true
+        required: [true , 'Property title is required']
     },
-    contact: {
+    guests: {
         type: Number,
-        required: true
+        required: [true , 'Property title is required']
     },
-    rent: {
+    bedrooms: {
         type: Number,
-        required: true
+        required: [true , 'Property title is required']
+    },
+    
+    bathrooms: {
+        type: Number,
+        required: [true , 'Property title is required']
     },
     images: [{
         type: String,
         required: true
-    }]
+    }],
+    description:{
+        type: String,
+        required:[true, 'property description is required']
+    },
+    features: [{
+        title: String,
+        brief: String
+         
+    }],
+    amenities:[{
+        type: String,
+        required:[true, 'property description is required']
+    }
+    ],
+    location:[{
+        longitude:{
+            type:String,
+            required:[true,'longitude is required']
+        },
+        latitude:{
+            type:String,
+            required:[true,'latitude is required']
+        },
+        city:{
+            type:String,
+            required:[true,'city is required']
+        },
+        state:{
+            type:String,
+            required:[true,'state is required']
+        },
+        country:{
+            type:String,
+            required:[true,'country is required']
+        },
+        description:String
+    }],
+    rules:[String],
+    safetyproperty:[string],
+    cancellationpolicy:{
+        type:string,
+        required:[true,'cancellation policy is required']
+    }
 });
 
-const Hotel = new model('Hotel', hotelSchema);
 
-export default Hotel;
+
+
+
+const Property = new model('Property', propertySchema);
+
+export default Property;
 
